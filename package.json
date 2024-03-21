@@ -1,8 +1,8 @@
 {
-  "devDependencies": {
-    "@types/node": "^20.11.19"
-  },
-  "dependencies": {
-    "stopwords": "^0.0.9"
-  }
+    "devDependencies": {
+        "@types/node": "^20.11.19"
+    },
+    "dependencies": {
+        "stopwords": "^0.0.9"
+    }
 }

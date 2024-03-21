@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 // Load Whatsapp convo
-const filePath = '../chats/cardiff_chat.txt';
+const filePath = '../chats/cal_chat.txt';
 const fileContent = fs.readFileSync(filePath, 'utf-8');
 const lines = fileContent.split('\n').slice(1,);
 
@@ -12,12 +12,16 @@ const COMMONWORDS: string[] = fs.readFileSync("../commonwods.txt", 'utf-8').spli
 const displayAmount = 10;
 
 // Split by name or show total
-const split = false;
+const split = true;
 
 // Object which will hold word counts and who said them. [name : [word : occurances]]
 var wordCounts: Record<string, Record<string, number>> = {};
 
 
+const getMostUsedWords = (words: Record<string, number>, n: number) =>
+    Object.keys(words)
+        .sort((a, b) => words[b] - words[a])
+        .slice(0, n);
 
 for (let line of lines) {
     let lineContent = line.split('-'); // Seperate date from text
@@ -79,6 +83,7 @@ function count_words(name: string, line: string) {
     }
 }
 
+/*
 function getMostUsedWords(words: Record<string, number>, n: number) {
     // Finds top n most used words
     var keys = Object.keys(words);
@@ -87,3 +92,6 @@ function getMostUsedWords(words: Record<string, number>, n: number) {
     })
     return keys.slice(0, n);
 }
+*/
+
+
